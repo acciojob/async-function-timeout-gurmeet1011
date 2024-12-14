@@ -10,8 +10,8 @@ document.getElementById("btn").addEventListener("click", async () => {
   const delayInput = parseInt(document.getElementById("delay").value, 10);
   const outputDiv = document.getElementById("output");
 
-  // Clear previous output
-  outputDiv.textContent = "Processing...";
+  // Clear the output div
+  outputDiv.textContent = "";
 
   // Validate inputs
   if (textInput.trim() === "" || isNaN(delayInput) || delayInput < 0) {
@@ -19,11 +19,15 @@ document.getElementById("btn").addEventListener("click", async () => {
     return;
   }
 
+  // Display 'Processing...' before waiting
+  outputDiv.textContent = "Processing...";
+
   // Await the specified delay
   await wait(delayInput);
 
   // Display the user-provided text
   outputDiv.textContent = textInput;
 });
+
 
 
